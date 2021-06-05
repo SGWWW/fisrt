@@ -17,7 +17,7 @@ jobs:
        - name: 'set Python' 
          uses: actions/setup-python@v1
          with:
-           python-version: 3.7
+           python-version: 3.9
        #安装requests
        - name: 'Install requests'
          run: |
