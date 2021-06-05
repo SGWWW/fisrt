@@ -22,22 +22,12 @@ jobs:
        - name: 'Install requests'
          run: |
            pip install requests
+           pip install yagmail
        #签到
        - name: 'sign up hall'
          run: |
            python user.py
         # 使用现成的发送邮箱的GitHub action来发送邮件
        - name: 'Send mail'
-         uses: dawidd6/action-send-mail@master
-         with:
-          # 这些是发送邮件需要配置的参数，更多详细的说明请访问具体的仓库
-          server_address: smtp.qq.com
-          server_port: 465
-          # 这些sectret的环境变量需要配置在setting中的secret下
-          username: ${{ secrets.MAIL_USERNAME }}
-          password: ${{ secrets.MAIL_PASSWORD }}
-          subject: 天气预报 (${{env.REPORT_DATE}})
-          body: file://result.html
-          to: Gry1417@163.com
-          from: GitHub Actions
-          content_type: text/html
+         run: |
+           python mail.py
