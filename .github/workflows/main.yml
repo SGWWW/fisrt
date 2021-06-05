@@ -18,8 +18,8 @@ jobs:
          uses: actions/setup-python@v1
          with:
            python-version: 3.9
-       #安装requests
-       - name: 'Install requests'
+       #安装requests 和 yagmail
+       - name: 'Install requests and yagmail'
          run: |
            pip install requests
            pip install yagmail
