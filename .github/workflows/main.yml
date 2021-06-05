@@ -22,7 +22,7 @@ jobs:
       uses: actions/checkout@v2
 
      - name: 'hall'
-        run: bash ./weather.sh
+        run: bash ./user.py
 # 使用现成的发送邮箱的GitHub action来发送邮件
       - name: 'Send mail'
         uses: dawidd6/action-send-mail@master
