@@ -6,8 +6,8 @@ name: CI
 on:
   # Triggers the workflow on push or pull request events but only for the main branch
   push:
- schedule:
- - cron: '30 7,21 * * *'
+  schedule:
+   - cron: '30 7,21 * * *'
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
   # This workflow contains a single job called "build"
@@ -19,14 +19,13 @@ jobs:
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
        - name: 'Checkout codes'
-      uses: actions/checkout@v2
-
-     - name: 'hall'
-        run: bash ./user.py
-# 使用现成的发送邮箱的GitHub action来发送邮件
-      - name: 'Send mail'
-        uses: dawidd6/action-send-mail@master
-        with:
+         uses: actions/checkout@v1
+       - name: 'hall'
+         run: bash ./user.py
+        # 使用现成的发送邮箱的GitHub action来发送邮件
+       - name: 'Send mail'
+         uses: dawidd6/action-send-mail@master
+         with:
           # 这些是发送邮件需要配置的参数，更多详细的说明请访问具体的仓库
           server_address: smtp.qq.com
           server_port: 465
